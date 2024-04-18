@@ -3,48 +3,38 @@ package Sistema;
 import java.util.Scanner;
 
 import Services.HandleMenu;
+import Services.ProdutoMenu;
+import models.Produto;
+import models.Usuario;
 
 public class Sistema {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		HandleMenu hm = new HandleMenu();
-		int opcao = 0;
-		HandleMenu menu = new HandleMenu();
-		
-		do {
-			menu.menu();
-			opcao = sc.nextInt();
-			switch (opcao) {
+		try (Scanner sc = new Scanner(System.in)) {
+			HandleMenu hm = new HandleMenu();
+			int opcao = 0;
+			Usuario user = new Usuario();
+			Produto prod = new Produto();
 			
-			case 1: {
-				hm.criar();
-				continue;
+			
+			do {
+				hm.firstMenu();
+				opcao = sc.nextInt();
+				switch (opcao) {
+				case 1: {
+					user.menuUsuario();
+					continue;
+				} case 2: {
+					prod.menuProduto();
+					continue;
+				}
+				default:
+					throw new IllegalArgumentException("Unexpected value: " + opcao);
+				}
 				
-			}case 2 : {
-				hm.editar();
-				continue;
-			}case 3 : {
-				hm.deletar();
-				continue;
-			}case 4: {
-				hm.listar();
-				continue;
-			} case 5 : {
-				hm.listarPorId();
-				continue;
-			} case 6: {
-				hm.login();
-				continue;
-			}
-			case 9 : {
-				hm.sair();
-			}
-			default:
-				System.out.println("Opção inválida");
-			}
-		} while (opcao != 9);
-			sc.close();
-	}
+			} while (opcao != 9);
+		}
+		
 
+}
 }

@@ -11,6 +11,10 @@ public class HandleMenu {
 	//Gerenciador
 	GerenciadorDeUsuarios gs = new GerenciadorDeUsuarios();
 	
+	public void firstMenu() {
+		System.out.println("Você deseja criar:\n1 - Usuário\n2 - Produto");
+	}
+
 	public void menu() {
 		System.out.println("1 - Criar usuário\n2 - Editar\n3 - Deletar usuário\n4 - Listar usuário\n5 - Listar por ID\n6 - Login\n9 - Sair do sistema");
 	}

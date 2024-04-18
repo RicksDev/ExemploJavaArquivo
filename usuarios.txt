@@ -6,3 +6,4 @@
 7;ricardo;12
 8;emerson;123
 9;ricardo;123
+10;ricardo;123
