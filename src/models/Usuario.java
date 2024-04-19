@@ -70,6 +70,9 @@ public class Usuario {
 			} case 6: {
 				hm.login();
 				continue;
+			} case 7 : {
+				hm.trocaSenha();
+				continue;
 			}
 			case 9 : {
 				hm.sair();
@@ -79,6 +82,7 @@ public class Usuario {
 			}
 		} while (opcao != 9);
 			sc.close();
+			System.exit(0);
 	}
 	
 	

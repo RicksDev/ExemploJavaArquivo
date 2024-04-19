@@ -139,12 +139,24 @@ public class GerenciadorDeUsuarios {
 		List<Usuario> usuarios = lerUsuarios();
 		for(Usuario usuario : usuarios) {
 			if (usuario.getNome().equals(nome) && usuario.getSenha().equals(senha)) {
+				
 				return true;
 			}
 		}
 		return false;
 		
 		
+	}
+	
+	public boolean trocaSenha(int id, String senha, String novaSenha) {
+		List <Usuario>usuarios = lerUsuarios();
+		for(Usuario usuario : usuarios) {
+			if(usuario.getId() == id && usuario.getSenha().equals(senha)) {
+				usuario.setSenha(novaSenha);
+				reescreverArquivo(usuarios);
+				return true;
+			}
+		} return false;
 	}
 	
 	

@@ -73,7 +73,12 @@ public class Produto {
 			} case 5 : {
 				pm.listarPorId();
 				continue;
-			} 
+			} case 6 : {
+				pm.mostrarSomaPrecos();
+				continue;
+			} case 7 : {
+				pm.mostrarSomaQuant();
+			}
 			case 9 : {
 				pm.sair();
 			}
@@ -82,7 +87,10 @@ public class Produto {
 			}
 		} while (opcao != 9);
 			sc.close();
+			System.exit(0);
 	}
+	
+	
 
 	@Override
 	public String toString() {

@@ -17,7 +17,7 @@ public class ProdutoMenu {
 		gp.verificarECria("produtos.txt");
 	}
 	public void menu() {
-		System.out.println("1 - Criar produto\n2 - Editar\n3 - Deletar produto\n4 - Listar produto\n5 - Listar por ID\n9 - Sair do sistema");
+		System.out.println("1 - Criar produto\n2 - Editar\n3 - Deletar produto\n4 - Listar produto\n5 - Listar por ID\n6 - Listar preços\n7 - Listrar quantidades\n9 - Sair do sistema");
 	}
 	
 	public void criar() {
@@ -53,6 +53,15 @@ public class ProdutoMenu {
 		gp.deletarProduto(id);
 		
 	}
+	
+	public void mostrarSomaPrecos() {
+		System.out.println("A soma dos preços é: " + gp.somaPrecos());
+	}
+	
+	public void mostrarSomaQuant () {
+		System.out.println("A soma da quantidade é: " + gp.countProd());
+	}
+	
 	/*
 	public void login() {
 		System.out.println("Digite o nome: ");
@@ -96,5 +105,7 @@ public class ProdutoMenu {
 		}
 		return maxId + 1;
 	}
+	
+
 
 }

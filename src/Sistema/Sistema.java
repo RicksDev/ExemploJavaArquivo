@@ -3,7 +3,6 @@ package Sistema;
 import java.util.Scanner;
 
 import Services.HandleMenu;
-import Services.ProdutoMenu;
 import models.Produto;
 import models.Usuario;
 

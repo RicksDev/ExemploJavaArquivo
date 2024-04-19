@@ -40,7 +40,7 @@ public class GerenciadorDeProdutos {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(NOME_ARQUIVO, true))) {
 			bw.write(produto.toString()); // 1;arthur;12345
 			bw.newLine(); // nova linha no arquivo txt
-			System.out.println("Usuário adicionado com sucesso!");
+			System.out.println("Produto adicionado com sucesso!");
 		} catch (Exception e) {
 			System.out.println("Ocorreu um ero ao escrever o usuário no arquivo " + e.getMessage());
 		}
@@ -61,15 +61,41 @@ public class GerenciadorDeProdutos {
 		}
 		return produtos;
 	}
+	
+	
+	public double somaPrecos() {
+		List <Produto> produtos = lerProdutos();
+		
+		double soma  = 0;
+		
+		for(Produto produto : produtos) {
+			
+			
+			soma += produto.getPreco() * produto.getQuantidade();
+			
+		}
+		return soma;
+	}
+	
+	public double countProd() {
+		List<Produto> produtos = lerProdutos();
+		double soma = 0;
+		
+		for (Produto produto: produtos) {
+			soma += produto.getQuantidade();
+		}
+		return soma;
+		
+	}
  
 	public void deletarProduto(int id) {
 		List<Produto> produtos = lerProdutos();
 		// array function => o produto vai passar de linha em linha
 		if (produtos.removeIf(produto -> produto.getId() == id)) {
 			reescreverArquivo(produtos);
-			System.out.println("Usuário deletado com sucesso");
+			System.out.println("Produto deletado com sucesso");
 		} else {
-			System.out.println("Usuário não encontrado");
+			System.out.println("Produto não encontrado");
 		}
 	}
  
@@ -89,9 +115,9 @@ public class GerenciadorDeProdutos {
  
 		if (find) {
 			reescreverArquivo(produtos);
-			System.out.println("Usuário editado com sucesso!");
+			System.out.println("Produto editado com sucesso!");
 		} else {
-			System.err.println("Usuário não encontrado! :(");
+			System.err.println("Produto não encontrado! :(");
 		}
  
 	}
@@ -111,7 +137,7 @@ public class GerenciadorDeProdutos {
 		List<Produto> produtos = lerProdutos();
 		// nenhum produto
 		if (produtos.isEmpty()) {
-			System.out.println("Nenhum usuário cadastrado...");
+			System.out.println("Nenhum produto cadastrado...");
 		} else {
 			System.out.println("Lista de produtos");
 			for (Produto produto : produtos) {

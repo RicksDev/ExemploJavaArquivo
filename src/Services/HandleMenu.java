@@ -16,7 +16,7 @@ public class HandleMenu {
 	}
 
 	public void menu() {
-		System.out.println("1 - Criar usuário\n2 - Editar\n3 - Deletar usuário\n4 - Listar usuário\n5 - Listar por ID\n6 - Login\n9 - Sair do sistema");
+		System.out.println("1 - Criar usuário\n2 - Editar\n3 - Deletar usuário\n4 - Listar usuário\n5 - Listar por ID\n6 - Login\n7 - Trocar senha\n9 - Sair do sistema");
 	}
 	//Construtor vazio
 	public HandleMenu() {
@@ -93,6 +93,24 @@ public class HandleMenu {
 			                       
 		}
 		return maxId + 1;
+	}
+	
+	public void trocaSenha() {
+		System.out.println("Digite o ID a ser trocado a senha: ");
+		int id = sc.nextInt();
+		System.out.println("Digite a senha atual: ");
+		String senha = sc.next();
+		System.out.println("Digite a NOVA senha: ");
+		String novaSenha = sc.next();
+		/* if(senha.equals(novaSenha)) {
+			System.out.println("As senhas são iguais. Troca ai animal!!!!");
+		} */
+		if(gs.trocaSenha(id, senha, novaSenha)) {
+			System.out.println("Senha alterada com sucesso!");
+		} else {
+			System.err.println("Deu erro! Tente novamente!");
+		}
+
 	}
 	
 	
